@@ -15,25 +15,30 @@ class HomeScreen extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.accessibility_new_sharp),
               title: Text(
-                'Hola mundo 1',
+                'Entradas',
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
-              subtitle: const Text('Como tan muchacho'),
+              subtitle: const Text('Diferentes widgets para entradas de flutter'),
               trailing: const Icon(Icons.accessibility_new_rounded),
             ),  
 
             const Divider(),      
+
             ListTile(
-              leading: const Icon(Icons.accessible_forward_rounded),
-              title: Text('Ta ocupao',style: Theme.of(context).textTheme.headlineLarge,),
-              subtitle: const Text('Yo a ute lo veo muy bien',),
+              leading: const Icon(Icons.list_alt_rounded),
+              title: Text(
+                'ListView.builder',
+                style: Theme.of(context).textTheme.headlineLarge,),
+              subtitle: const Text('Scroll infinito',),
               trailing: const Icon(Icons.add_reaction_outlined),
             ),        
             const Divider(),      
             ListTile(
-              leading: const Icon(Icons.alternate_email_sharp),
-              title: Text('Hola mundo 3', style: Theme.of(context).textTheme.headlineLarge,),
-              subtitle: const Text('Se merecen una recompensa, velda?'),
+              leading: const Icon(Icons.notification_add),
+              title: Text(
+                'Notificaciones',
+               style: Theme.of(context).textTheme.headlineLarge,),
+              subtitle: const Text('Creacion de notificaciones'),
               trailing: const Icon(Icons.assist_walker_sharp),
             ),        
           ],
