@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   // Declaracion de color 
@@ -15,13 +16,19 @@ class AppTheme {
           color: mainColor,
           ),
 
-          textTheme: const TextTheme(
-            headlineLarge: TextStyle(
-              color: Color.fromARGB(255, 0, 0, 0),
+          textTheme: TextTheme(
+            headlineLarge: GoogleFonts.montserrat(
+              color: Colors.black,
               fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'sans-serif',
-            )
+              fontWeight: FontWeight.w500,
+              decoration: TextDecoration.underline,
+              decorationColor: mainColor,
+              decorationStyle: TextDecorationStyle.wavy,
+              decorationThickness: 2.0,
+              fontStyle: FontStyle.italic,
+
+            ),
+            // bodySmall: 
           ),
   );
 
