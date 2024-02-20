@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   // Declaracion de color 
   static const mainColor = Color.fromARGB(255, 142, 146, 255);
+  static const accentColor = Color.fromARGB(255, 62, 65, 115);
   static const backColor =  Color.fromARGB(255, 213, 215, 240);
 
 
@@ -26,9 +27,14 @@ class AppTheme {
               decorationStyle: TextDecorationStyle.wavy,
               decorationThickness: 2.0,
               fontStyle: FontStyle.italic,
-
             ),
-            // bodySmall: 
+
+            bodySmall: GoogleFonts.montserrat(
+              color: accentColor,
+              fontSize: 16.5,
+              fontWeight: FontWeight.w300,
+              fontStyle: FontStyle.italic
+            ),
           ),
   );
 
