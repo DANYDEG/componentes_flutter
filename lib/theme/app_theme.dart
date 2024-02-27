@@ -30,7 +30,7 @@ class AppTheme {
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(
-                backColor
+                mainColor
               ),
               foregroundColor: MaterialStateProperty.all(
                 bk
@@ -54,6 +54,14 @@ class AppTheme {
               decorationStyle: TextDecorationStyle.wavy,
               decorationThickness: 2.0,
               fontStyle: FontStyle.italic,
+            ),
+
+            headlineMedium: GoogleFonts.montserrat(
+              color: Colors.black,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w500,
+              decorationStyle: TextDecorationStyle.wavy,
+              decorationThickness: 1.5,
             ),
 
             bodySmall: GoogleFonts.montserrat(
