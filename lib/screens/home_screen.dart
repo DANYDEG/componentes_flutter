@@ -30,6 +30,12 @@ class HomeScreen extends StatelessWidget {
               style: AppTheme.lightTheme.textTheme.bodySmall,
             ),
 
+            // trailing: const CircularProgressIndicator(
+            //   value: 0.15,
+            //   strokeWidth: 10.0,
+            //   color: AppTheme.mainColor,
+            //   backgroundColor: Color.fromARGB(255, 50, 50, 50),
+            // ),
 
             trailing: IconTheme(
               data: AppTheme.lightTheme.iconTheme,
