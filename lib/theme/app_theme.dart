@@ -66,7 +66,7 @@ class AppTheme {
 
             bodySmall: GoogleFonts.montserrat(
               color: accentColor,
-              fontSize: 16.5,
+              fontSize: 12.5,
               fontWeight: FontWeight.w300,
               fontStyle: FontStyle.italic
             ),

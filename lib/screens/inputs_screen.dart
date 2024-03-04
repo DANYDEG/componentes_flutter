@@ -10,8 +10,14 @@ class InputsScreen extends StatefulWidget {
 
 class _InputsScreenState extends State<InputsScreen> {
   bool valueSwitch = false;
+
+  bool isChecked1 = false;
+  bool isChecked2 = false;
+  bool isChecked3 = false;
+
   double valueSlider = 0.0;
   int selectedIndex = 0;
+  int selectedRdioOption = 0; // RadioButton
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +32,12 @@ class _InputsScreenState extends State<InputsScreen> {
             entradaTexto(),
             entradaSwitch(),
             entradaSlider(),
+            entradasRadio(),
+            Text(
+              '¿Ques usas para correr tus apps ?',
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            entradaCheck(),
             const ElevatedButton(
               onPressed: null,
               child: Text(
@@ -40,19 +52,28 @@ class _InputsScreenState extends State<InputsScreen> {
         backgroundColor: AppTheme.backColor,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: AppTheme.bk,),
+            icon: Icon(
+              Icons.home,
+              color: AppTheme.bk,
+            ),
             label: "Inicio",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list, color: AppTheme.bk,),
+            icon: Icon(
+              Icons.list,
+              color: AppTheme.bk,
+            ),
             label: "Datos",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.exit_to_app, color: AppTheme.bk,),
+            icon: Icon(
+              Icons.exit_to_app,
+              color: AppTheme.bk,
+            ),
             label: "Salir",
           ),
         ],
-        unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodySmall ,
+        unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodySmall,
       ),
     );
   }
@@ -112,6 +133,102 @@ class _InputsScreenState extends State<InputsScreen> {
                 print('Valor Sider: $valueSlider');
               });
             })
+      ],
+    );
+  }
+
+  Column entradasRadio() {
+    return Column(
+      children: [
+        Text(
+          "¿Que prefieres usar para desarrollo movil?",
+          style: AppTheme.lightTheme.textTheme.headlineMedium,
+        ),
+        ListTile(
+          title: Text(
+            'Kotlin',
+            style: AppTheme.lightTheme.textTheme.headlineMedium,
+          ),
+          leading: Transform.scale(
+            scale: 1,
+            child: Radio(
+                value: 1,
+                groupValue: selectedRdioOption,
+                onChanged: (value) {
+                  setState(() {
+                    selectedRdioOption = value!;
+                  });
+                }),
+          ),
+        ),
+        ListTile(
+          title: Text(
+            'Flutter',
+            style: AppTheme.lightTheme.textTheme.headlineMedium,
+          ),
+          leading: Transform.scale(
+            scale: 1,
+            child: Radio(
+                value: 2,
+                groupValue: selectedRdioOption,
+                onChanged: (value) {
+                  setState(() {
+                    selectedRdioOption = value!;
+                    print('Opcion seleccionada: $selectedRdioOption');
+                  });
+                }),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row entradaCheck() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'Navegador',
+          style: AppTheme.lightTheme.textTheme.bodySmall,
+        ),
+        Checkbox(
+            value: isChecked1,
+            onChanged: (value) {
+              setState(() {
+                isChecked1 = value!;
+                print('valor de navegador: $isChecked1');
+              });
+            }
+          ),
+
+          Text(
+          'Emulador',
+          style: AppTheme.lightTheme.textTheme.bodySmall,
+        ),
+        Checkbox(
+            value: isChecked2,
+            onChanged: (value) {
+              setState(() {
+                isChecked2 = value!;
+                print('valor de emulador: $isChecked2');
+              });
+            }
+          ),
+
+
+          Text(
+          'Smartphone',
+          style: AppTheme.lightTheme.textTheme.bodySmall,
+        ),
+        Checkbox(
+            value: isChecked3,
+            onChanged: (value) {
+              setState(() {
+                isChecked3 = value!;
+                print('valor de smartphone: $isChecked3');
+              });
+            }
+          ),
       ],
     );
   }
