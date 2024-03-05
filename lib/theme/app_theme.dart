@@ -16,6 +16,7 @@ class AppTheme {
 
         appBarTheme: AppBarTheme(
           color: mainColor,
+          
           titleTextStyle: GoogleFonts.lato(
             color: backColor,
             fontSize: 28,
