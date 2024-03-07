@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:practica3/theme/app_theme.dart';
+import 'package:transparent_image/transparent_image.dart';
+
 
 class ImagesScreen extends StatefulWidget {
   const ImagesScreen({super.key});
@@ -53,9 +55,32 @@ class _ImagesScreenState extends State<ImagesScreen> {
 
   }
 
-  Widget imageWeb(){
-    return Center(
-      child: Image.network('https://i0.wp.com/newspack-yucatan.s3.amazonaws.com/uploads/2020/04/EWk0ww3VAAAjJ6f.jpg?w=600&ssl=1'),
+  Stack imageWeb(){
+    return Stack(
+      children: <Widget>[
+        
+        const Center(
+          
+            child: CircularProgressIndicator(),
+            ),
+        
+        Center(
+          child: SizedBox(
+            height: 300,
+            width: 300,
+            child: FadeInImage.memoryNetwork(
+              placeholder: kTransparentImage, 
+              image: 'https://i.kym-cdn.com/entries/icons/original/000/047/822/F94F55A2-481D-41B1-8910-C358B853BBEB.jpeg'
+            ),
+            
+            // para mostrar una imagen de la web
+
+            // Image.network(
+            //   'https://i.kym-cdn.com/entries/icons/original/000/047/822/F94F55A2-481D-41B1-8910-C358B853BBEB.jpeg'
+            //   )
+            ),
+        ),
+        ],
     );
   }
 }
