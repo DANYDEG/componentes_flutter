@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practica3/screens/home_screen.dart';
+import 'package:practica3/screens/infinite_list_screen.dart';
+import 'package:practica3/screens/notifications_screen.dart';
 import 'package:practica3/theme/app_theme.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -11,6 +14,40 @@ class ImagesScreen extends StatefulWidget {
 }
 
 class _ImagesScreenState extends State<ImagesScreen> {
+
+
+    int selectedIndex = 0;
+
+  openScreen(int index){
+  setState(() {
+    MaterialPageRoute ruta= 
+    MaterialPageRoute(builder: (context) => const HomeScreen());
+
+    switch(index){
+      case 0: 
+        ruta = MaterialPageRoute(builder: (context) => const HomeScreen());
+      break;
+      case 1: 
+        ruta = MaterialPageRoute(builder: (context) => const InfiniteListScreen());
+      break;
+      case 2: 
+        ruta = MaterialPageRoute(builder: (context) => const NotificationsScreen());
+      break;
+      case 3: 
+        ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
+    }
+
+
+    selectedIndex = index;
+    // print('selectedIndex: $selectedIndex' );
+      Navigator.push(
+        context, 
+        ruta);
+    });
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +62,54 @@ class _ImagesScreenState extends State<ImagesScreen> {
             imageCard(),
             imageWeb(),
           ],
-        ));
+        ),
+
+              bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        backgroundColor: AppTheme.backColor,
+        unselectedItemColor: AppTheme.accentColor,
+        onTap: (index) => openScreen(index),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: AppTheme.bk,
+            ),
+            label: "Inicio", 
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.list,
+              color: AppTheme.bk,
+            ),
+            label: "Lista",
+          ),
+
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.notifications_active_outlined,
+              color: AppTheme.bk,
+            ),
+            label: "Notificaciones",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.image,
+              color: AppTheme.bk,
+            ),
+            label: "Imagenes",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.exit_to_app,
+              color: AppTheme.bk,
+            ),
+            label: "Salir",
+          ),
+        ],
+        unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodySmall,
+      ),
+    );
   }
 
   Card imageCard() {
