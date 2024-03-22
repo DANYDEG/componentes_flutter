@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:practica3/screens/home_screen.dart';
 import 'package:practica3/screens/infinite_list_screen.dart';
+import 'package:practica3/screens/inputs_screen.dart';
 import 'package:practica3/screens/notifications_screen.dart';
 import 'package:practica3/theme/app_theme.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -34,7 +35,7 @@ class _ImagesScreenState extends State<ImagesScreen> {
         ruta = MaterialPageRoute(builder: (context) => const NotificationsScreen());
       break;
       case 3: 
-        ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
+        ruta = MaterialPageRoute(builder: (context) => const InputsScreen());
     }
 
 
@@ -64,7 +65,7 @@ class _ImagesScreenState extends State<ImagesScreen> {
           ],
         ),
 
-              bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         backgroundColor: AppTheme.backColor,
         unselectedItemColor: AppTheme.accentColor,
@@ -94,10 +95,10 @@ class _ImagesScreenState extends State<ImagesScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.image,
+              Icons.arrow_circle_right_outlined,
               color: AppTheme.bk,
             ),
-            label: "Imagenes",
+            label: "Entradas",
           ),
           BottomNavigationBarItem(
             icon: Icon(
